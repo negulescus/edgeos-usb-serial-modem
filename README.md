@@ -1,5 +1,5 @@
 # edgeos-usb-serial-modem
-Recipe for making a USB modem / dongle to work under EdgeOS (ttyUSB)
+Recipe for making a USB modem / dongle work under EdgeOS (ttyUSB)
 
 Feedback and comments here: https://community.ui.com/questions/USBSerial-kernel-module/26178427-3838-4379-83f2-75ff62a18c3c (you will need an account to be able to see the discussion thread)
 
