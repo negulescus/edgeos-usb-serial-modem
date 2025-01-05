@@ -21,7 +21,8 @@ commit ; save
 ```
 sudo apt-get update
 ```
-> !!! WARNING: Do not use the "apt-get upgrade" command as it can break the customized Debian packages used in EdgeOS.
+> [!WARNING]
+> Do not use the **apt-get upgrade** command as it can break the customized Debian packages used in EdgeOS.
 ### 5. Search for the package you wish to install. In this example, the usb-modeswitch:
 ```
 sudo apt-cache search usb-modeswitch
@@ -280,7 +281,9 @@ python miniterm.py
 	OK
 	--- exit ---
 ```
-> Note: press Ctrl+] to exit miniterm.py
+> [!NOTE]
+> - Press Ctrl+z to finish editing the SMS and press Enter
+> - Press Ctrl+] to exit miniterm.py
 ### Other things
 If you wish to **see if/which drivers are loaded** then run:
 ```
