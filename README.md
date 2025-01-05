@@ -281,5 +281,34 @@ python miniterm.py
 	--- exit ---
 ```
 > Note: press Ctrl+] to exit miniterm.py
+### Other things
+If you wish to **see if/which drivers are loaded** then run:
+```
+cat /proc/tty/drivers
+```
+```
+	/dev/tty             /dev/tty        5       0 system:/dev/tty
+	/dev/console         /dev/console    5       1 system:console
+	/dev/ptmx            /dev/ptmx       5       2 system
+	usbserial            /dev/ttyUSB   188 0-511 serial
+	serial               /dev/ttyS       4 64-69 serial
+	pty_slave            /dev/pts      136 0-1048575 pty:slave
+	pty_master           /dev/ptm      128 0-1048575 pty:master
+	octeon_pci_console   /dev/ttyPCI     4      96 serial
+```
+If the **cdc_ether drivers interferes with your setup** then you may prevent it from loading by issuing:
+```
+echo "blacklist cdc_ether" | sudo tee -a /etc/modprobe.d/blacklist.conf
+```
+To **manually reset an usb device**:
+```
+usb_modeswitch -W -v 0x12d1 -p 0x1465 -R
+```
+(get the vendor and product codes from the `lsusb` command)
+
+**Poorman's solution to test serial communication:**
+- start two ssh sessions to the router/host
+- on the first session run `cat -v < /dev/ttyUSB0` (it will display the output from ttyUSB0)
+- on the second session send the AT commands: `echo -ne 'ATZ' > /dev/ttyUSB0`
 ### References:
 - Add Debian repositories/packages: https://help.ui.com/hc/en-us/articles/205202560-EdgeRouter-Add-Debian-Packages-to-EdgeOS
